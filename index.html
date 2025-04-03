@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>装修指南 - 飞屋设计</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Preline UI -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/preline@2.0.3/dist/preline.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.0.3/dist/preline.min.js" defer></script>
+    <!-- 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Merriweather:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            "50": "#f1fafd",
+                            "100": "#d7f0f9",
+                            "200": "#bae3f2",
+                            "300": "#8fd2eb",
+                            "400": "#49bbe4",
+                            "500": "#1aabe0",
+                            "600": "#108ab7",
+                            "700": "#097ba4",
+                            "800": "#046386",
+                            "900": "#03465e"
+                        },
+                        secondary: {
+                            "50": "#fbebe6",
+                            "100": "#f6d8cd",
+                            "200": "#eec1b1",
+                            "300": "#e4a087",
+                            "400": "#dc6c43",
+                            "500": "#cd4e1f",
+                            "600": "#a53b14",
+                            "700": "#93310d",
+                            "800": "#752507",
+                            "900": "#4e1905"
+                        },
+                        neutral: {
+                            "50": "#ffffff",
+                            "100": "#ffffff",
+                            "200": "#ffffff",
+                            "300": "#ffffff",
+                            "400": "#f2f3f3",
+                            "500": "#d5d9dd",
+                            "600": "#b6c0c9",
+                            "700": "#a3b3c2",
+                            "800": "#89a1b9",
+                            "900": "#6f8caa"
+                        }
+                    },
+                    borderRadius: {
+                        DEFAULT: '4px',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['Merriweather', 'Georgia', 'serif'],
+                        mono: ['Fira Code', 'monospace'],
+                        display: ['Montserrat', 'system-ui', 'sans-serif'],
+                        handwriting: ['Caveat', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        :root {
+            /* Color System */
+            --color-primary-50: #f1fafd;
+            --color-primary-100: #d7f0f9;
+            --color-primary-200: #bae3f2;
+            --color-primary-300: #8fd2eb;
+            --color-primary-400: #49bbe4;
+            --color-primary-500: #1aabe0;
+            --color-primary-600: #108ab7;
+            --color-primary-700: #097ba4;
+            --color-primary-800: #046386;
+            --color-primary-900: #03465e;
+            
+            --color-secondary-50: #fbebe6;
+            --color-secondary-100: #f6d8cd;
+            --color-secondary-200: #eec1b1;
+            --color-secondary-300: #e4a087;
+            --color-secondary-400: #dc6c43;
+            --color-secondary-500: #cd4e1f;
+            --color-secondary-600: #a53b14;
+            --color-secondary-700: #93310d;
+            --color-secondary-800: #752507;
+            --color-secondary-900: #4e1905;
+            
+            --color-neutral-50: #ffffff;
+            --color-neutral-100: #ffffff;
+            --color-neutral-200: #ffffff;
+            --color-neutral-300: #ffffff;
+            --color-neutral-400: #f2f3f3;
+            --color-neutral-500: #d5d9dd;
+            --color-neutral-600: #b6c0c9;
+            --color-neutral-700: #a3b3c2;
+            --color-neutral-800: #89a1b9;
+            --color-neutral-900: #6f8caa;
+            
+            /* Typography */
+            --font-family-heading: 'Fira Code', monospace;
+            --font-family-body: 'Merriweather', Georgia, serif;
+            --font-size-base: 16px;
+            --line-height: 1.5;
+            --heading-scale: 1.36;
+            --heading-weight: 700;
+            
+            /* UI Style */
+            --border-radius: 4px;
+            --shadow-level: 1;
+            --spacing-scale: 1.27;
+            --button-style: 2;
+            --animation-level: 0;
+        }
+
+        /* 自定义样式 */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* 滚动平滑效果 */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* 深色模式样式 */
+        @media (prefers-color-scheme: dark) {
+            .dark\:bg-slate-900 {
+                background-color: #0f172a;
+            }
+            
+            .dark\:text-white {
+                color: #ffffff;
+            }
+            
+            .dark\:border-slate-700 {
+                border-color: #334155;
+            }
+        }
+    </style>
+</head>
+
+<body class="font-serif bg-neutral-50 text-gray-800 dark:bg-slate-900 dark:text-white transition-colors duration-300">
+    <!-- 导航栏 -->
+    <header class="sticky top-0 z-50 bg-white dark:bg-slate-900 shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="text-2xl font-mono font-bold text-primary-600 dark:text-primary-400">飞屋设计</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors">
+                    <i class="fa-solid fa-sun text-yellow-500 dark:hidden"></i>
+                    <i class="fa-solid fa-moon text-blue-300 hidden dark:block"></i>
+                </button>
+                <a href="#contact" class="hidden md:block bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded transition-colors duration-300 transform hover:scale-105">
+                    联系我们
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主横幅 -->
+    <section class="bg-gradient-to-r from-primary-600 to-primary-800 text-white py-16 md:py-24">
+        <div class="container mx-auto px-4 fade-in">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl font-mono font-bold mb-6">装修指南</h1>
+                <p class="text-xl md:text-2xl opacity-90">为你整理的家装必备知识，让你的装修之旅更加顺利</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 目录导航 -->
+    <section class="py-8 bg-white dark:bg-slate-800 shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#service-providers" class="px-4 py-2 bg-primary-50 dark:bg-primary-900 text-primary-700 dark:text-primary-200 rounded hover:bg-primary-100 dark:hover:bg-primary-800 transition-colors">服务商对比</a>
+                <a href="#cooperation" class="px-4 py-2 bg-primary-50 dark:bg-primary-900 text-primary-700 dark:text-primary-200 rounded hover:bg-primary-100 dark:hover:bg-primary-800 transition-colors">合作模式</a>
+                <a href="#process" class="px-4 py-2 bg-primary-50 dark:bg-primary-900 text-primary-700 dark:text-primary-200 rounded hover:bg-primary-100 dark:hover:bg-primary-800 transition-colors">装修流程</a>
+                <a href="#budget" class="px-4 py-2 bg-primary-50 dark:bg-primary-900 text-primary-700 dark:text-primary-200 rounded hover:bg-primary-100 dark:hover:bg-primary-800 transition-colors">预算规划</a>
+                <a href="#timeline" class="px-4 py-2 bg-primary-50 dark:bg-primary-900 text-primary-700 dark:text-primary-200 rounded hover:bg-primary-100 dark:hover:bg-primary-800 transition-colors">工期安排</a>
+                <a href="#materials" class="px-4 py-2 bg-primary-50 dark:bg-primary-900 text-primary-700 dark:text-primary-200 rounded hover:bg-primary-100 dark:hover:bg-primary-800 transition-colors">材料选择</a>
+                <a href="#warranty" class="px-4 py-2 bg-primary-50 dark:bg-primary-900 text-primary-700 dark:text-primary-200 rounded hover:bg-primary-100 dark:hover:bg-primary-800 transition-colors">售后保修</a>
+                <a href="#tips" class="px-4 py-2 bg-primary-50 dark:bg-primary-900 text-primary-700 dark:text-primary-200 rounded hover:bg-primary-100 dark:hover:bg-primary-800 transition-colors">高赞技巧</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要内容区 -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- 介绍 -->
+        <section class="mb-16 fade-in">
+            <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 rounded-lg shadow-md p-8">
+                <h2 class="text-3xl font-mono font-bold text-primary-700 dark:text-primary-300 mb-6">家装市场概况</h2>
+                <p class="mb-4 leading-relaxed">这是我们飞屋设计为大家整理的，关于装修里面，需要了解的事情。希望对大家做出家装中各项选择有帮助。</p>
+                <p class="mb-4 leading-relaxed">当你面对装修市场时，在你面前的，有三个选择：装修公司、设计工作室、独立设计师。这三类，我们统称"家装服务商"。</p>
+                <p class="mb-4 leading-relaxed">当然，如果还要算上「自装」，那么就有四种选择。但是，「自装」是一件非常耗费心力、精力、金钱、时间的选择，万不得已，在这里，想认真对你说：不要选。</p>
+                <p class="leading-relaxed">但是，如果你有足够精力、有足够的学习能力、有足够的时间、有足够的冒险精神。你可以尝试「自装」。你会收获不一样的人生体验。</p>
+            </div>
+        </section>
+
+        <!-- 服务商对比 -->
+        <section id="service-providers" class="mb-16 fade-in">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-mono font-bold text-primary-700 dark:text-primary-300 mb-8 text-center">装修公司 vs. 设计工作室 vs. 独立设计师</h2>
+                
+                <!-- 对比卡片 -->
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- 装修公司 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 card-hover border-t-4 border-secondary-500">
+                        <h3 class="text-xl font-bold mb-4 text-secondary-600 dark:text-secondary-400">装修公司</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-briefcase mt-1 mr-2 text-secondary-500"></i>
+                                <span>主要做什么：就是搞装修的，重点在施工和搞定材料，赚钱是第一位的。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-bullhorn mt-1 mr-2 text-secondary-500"></i>
+                                <span>怎么拉客：靠打广告、搞套餐、做活动，让你赶紧签合同。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-list-check mt-1 mr-2 text-secondary-500"></i>
+                                <span>服务范围：从设计、施工到买材料，全部都包了，一条龙服务。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-coins mt-1 mr-2 text-secondary-500"></i>
+                                <span>怎么赚钱：就是做生意，想办法多赚钱，接的单子越多越好。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-money-bill-wave mt-1 mr-2 text-secondary-500"></i>
+                                <span>收钱方式：设计费一般不要钱或者很便宜，主要靠施工和卖材料赚钱。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-pencil mt-1 mr-2 text-secondary-500"></i>
+                                <span>设计怎么样：设计方案别出大错就行，他们更关心施工能不能赚钱。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-hammer mt-1 mr-2 text-secondary-500"></i>
+                                <span>施工水平：都是流水线作业，装得快，但效果，就那样，普普通通。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-star mt-1 mr-2 text-secondary-500"></i>
+                                <span>想搞点特别的？比较难，大多是现成的模块给你拼，没啥个性。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-headset mt-1 mr-2 text-secondary-500"></i>
+                                <span>售后怎么样：大牌子相对靠谱点，但小公司跑路的挺多。</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 设计工作室 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 card-hover border-t-4 border-primary-500">
+                        <h3 class="text-xl font-bold mb-4 text-primary-600 dark:text-primary-400">设计工作室</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-palette mt-1 mr-2 text-primary-500"></i>
+                                <span>主要做什么：重点是设计，讲究创意、个性和住得舒不舒服。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-users mt-1 mr-2 text-primary-500"></i>
+                                <span>怎么拉客：靠好的设计作品和大家的口口相传。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-list-check mt-1 mr-2 text-primary-500"></i>
+                                <span>服务范围：主要做设计，施工可能自己做，也可能不做，或者给你推荐合作的施工队。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-coins mt-1 mr-2 text-primary-500"></i>
+                                <span>怎么赚钱：规模不大但做得精，看重设计质量和名声。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-money-bill-wave mt-1 mr-2 text-primary-500"></i>
+                                <span>收钱方式：公司运营成本不高，但好的工作室设计费挺贵的，会给你详细的图纸，还会盯着施工。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-pencil mt-1 mr-2 text-primary-500"></i>
+                                <span>设计怎么样：想把设计做到最好，会仔细问你的需求，给你做个独一无二的方案。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-hammer mt-1 mr-2 text-primary-500"></i>
+                                <span>施工水平：对施工要求很高，要确保设计图能变成现实。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-star mt-1 mr-2 text-primary-500"></i>
+                                <span>想搞点特别的？没问题，能满足你各种个性化的想法。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-headset mt-1 mr-2 text-primary-500"></i>
+                                <span>售后怎么样：因为公司不大，售后可能没大装修公司那么完善。</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 独立设计师 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 card-hover border-t-4 border-neutral-700">
+                        <h3 class="text-xl font-bold mb-4 text-gray-700 dark:text-gray-300">独立设计师</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-user-tie mt-1 mr-2 text-gray-600 dark:text-gray-400"></i>
+                                <span>主要做什么：就是纯搞设计的，靠的是自己的设计水平和名气。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-comment-dots mt-1 mr-2 text-gray-600 dark:text-gray-400"></i>
+                                <span>怎么拉客：靠个人名声、以前的作品，还有客户互相推荐。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-list-check mt-1 mr-2 text-gray-600 dark:text-gray-400"></i>
+                                <span>服务范围：只管设计，有时候会给你推荐他合作过的施工队。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-coins mt-1 mr-2 text-gray-600 dark:text-gray-400"></i>
+                                <span>怎么赚钱：靠个人品牌吃饭，设计能力就是他的招牌。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-money-bill-wave mt-1 mr-2 text-gray-600 dark:text-gray-400"></i>
+                                <span>收钱方式：设计费一般不便宜，毕竟是人家水平和经验的体现。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-pencil mt-1 mr-2 text-gray-600 dark:text-gray-400"></i>
+                                <span>设计怎么样：就是想帮你搞个独一无二的家，特别抠细节，满足你的个性想法。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-hammer mt-1 mr-2 text-gray-600 dark:text-gray-400"></i>
+                                <span>施工水平：（虽然他不施工）但他对最终效果要求很高，会想办法让设计想法落地。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-star mt-1 mr-2 text-gray-600 dark:text-gray-400"></i>
+                                <span>想搞点特别的？那是强项，个性化、定制化的需求都能搞定。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-headset mt-1 mr-2 text-gray-600 dark:text-gray-400"></i>
+                                <span>售后怎么样：一般没专门的售后部门，主要看设计师负不负责，人品好不好。</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 补充说明 -->
+                <div class="mt-10 bg-primary-50 dark:bg-slate-700 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4 text-primary-700 dark:text-primary-300">补充几句</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-circle-check mt-1 mr-2 text-primary-600 dark:text-primary-400"></i>
+                            <span><strong>设计水平哪个强？</strong>独立设计师和设计工作室的设计一般更好，想法也更多。装修公司的设计师有点像销售，设计免费主要是为了让你签单。</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-circle-check mt-1 mr-2 text-primary-600 dark:text-primary-400"></i>
+                            <span><strong>哪个更花钱？</strong>装修公司买材料可能便宜点，但施工费里会赚钱。设计工作室和独立设计师设计费贵，但在买材料和找施工队方面可能更自由，说不定能帮你省点钱。</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-circle-check mt-1 mr-2 text-primary-600 dark:text-primary-400"></i>
+                            <span><strong>沟通起来怎么样？</strong>跟独立设计师和设计工作室沟通一般更直接、更透彻。装修公司的设计师可能得按公司规定说话，没那么灵活。</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-circle-check mt-1 mr-2 text-primary-600 dark:text-primary-400"></i>
+                            <span><strong>工期长短？</strong>装修公司流程固定，干活可能快点，但也容易出问题（暴雷）。设计工作室和独立设计师更抠细节，可能花的时间会长一些。</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 合作模式 -->
+        <section id="cooperation" class="mb-16 fade-in">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-mono font-bold text-primary-700 dark:text-primary-300 mb-8 text-center">怎么合作</h2>
+                <p class="mb-6 text-center">说到装修，我们跟装修公司/设计师怎么分工合作，也就是"你干什么，我干什么"，主要有几种玩法。</p>
+                
+                <!-- 施工角度 -->
+                <div class="mb-10">
+                    <h3 class="text-2xl font-bold mb-6 text-primary-600 dark:text-primary-400">从施工角度看</h3>
+                    <p class="mb-4">主要有三种：全包、半包、清包。这三种各有各的好处和坏处，适合不同需求的人。</p>
+                    
+                    <!-- 施工模式卡片 -->
+                    <div class="grid md:grid-cols-3 gap-6 mt-6">
+                        <!-- 半包 -->
+                        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden card-hover">
+                            <div class="bg-primary-100 dark:bg-primary-900 p-4">
+                                <h4 class="text-xl font-bold text-primary-700 dark:text-primary-300">半包</h4>
+                            </div>
+                            <div class="p-6">
+                                <div class="mb-4">
+                                    <h5 class="font-bold mb-2">施工方做什么</h5>
+                                    <p>出人工+买辅料（辅料就是水泥、沙子、腻子、乳胶漆、防水、电线网线、水管线管这些）</p>
+                                </div>
+                                <div class="mb-4">
+                                    <h5 class="font-bold mb-2">你做什么</h5>
+                                    <p>自己买主材+盯着点工地（主材就是瓷砖、地板、墙纸墙布、橱柜、门窗、灯、马桶、开关插座、热水器、花洒、灶具、大理石、吊顶扣板、踢脚线、净水器、中央空调、地暖、水槽这些看得见摸得着的大件）</p>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold mb-2">怎么选？</h5>
+                                    <p class="mb-2"><strong class="text-primary-600 dark:text-primary-400">好处：</strong>比较灵活，主材自己买，心里有数，也能省点钱，质量自己把控一部分。</p>
+                                    <p><strong class="text-secondary-600 dark:text-secondary-400">坏处：</strong>费时间费精力，得自己跑建材市场，一不小心就容易买超预算，工期可能拉长。</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 全包 -->
+                        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden card-hover">
+                            <div class="bg-primary-100 dark:bg-primary-900 p-4">
+                                <h4 class="text-xl font-bold text-primary-700 dark:text-primary-300">全包</h4>
+                            </div>
+                            <div class="p-6">
+                                <div class="mb-4">
+                                    <h5 class="font-bold mb-2">施工方做什么</h5>
+                                    <p>出人工+买辅料+买主材（上面说的辅料主料基本都包了）</p>
+                                </div>
+                                <div class="mb-4">
+                                    <h5 class="font-bold mb-2">你做什么</h5>
+                                    <p>偶尔去工地看看，验收一下就行。</p>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold mb-2">怎么选？</h5>
+                                    <p class="mb-2"><strong class="text-primary-600 dark:text-primary-400">好处：</strong>省心省力，什么都不用你操心，装修公司一条龙搞定，适合没时间或者完全不懂装修的小白。</p>
+                                    <p><strong class="text-secondary-600 dark:text-secondary-400">坏处：</strong>贵！设计可能没什么个性，主材选择有限制（只能在他们提供的里面选），不好监督他们有没有偷工减料。</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 清包 -->
+                        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden card-hover">
+                            <div class="bg-primary-100 dark:bg-primary-900 p-4">
+                                <h4 class="text-xl font-bold text-primary-700 dark:text-primary-300">清包</h4>
+                            </div>
+                            <div class="p-6">
+                                <div class="mb-4">
+                                    <h5 class="font-bold mb-2">施工方做什么</h5>
+                                    <p>只出人工，别的都不管。</p>
+                                </div>
+                                <div class="mb-4">
+                                    <h5 class="font-bold mb-2">你做什么</h5>
+                                    <p>工地上要用的所有材料，大到水泥沙子砖头，小到一瓶胶水，都得你自己买好运到现场。</p>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold mb-2">怎么选？</h5>
+                                    <p class="mb-2"><strong class="text-primary-600 dark:text-primary-400">好处：</strong>最省钱（理论上），所有东西都自己掌控，自由度最高，适合懂装修、有大把时间、喜欢亲力亲为的人。</p>
+                                    <p><strong class="text-secondary-600 dark:text-secondary-400">坏处：</strong>很累，什么都得自己做，不熟悉市场容易被坑，施工质量好不好全看你找的工人和你自己的把控能力。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="mt-6 text-center font-bold">总结一下：没时间、不懂行的，选全包省心；有点经验、想自己控制预算和主材的，选半包；是装修大神、有时间的，可以挑战清包。</p>
+                </div>
+                
+                <!-- 设计角度 -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 text-primary-600 dark:text-primary-400">从设计角度看</h3>
+                    <p class="mb-4">设计方这边也有几种合作方式：</p>
+                    
+                    <!-- 设计模式卡片 -->
+                    <div class="grid md:grid-cols-3 gap-6 mt-6">
+                        <!-- 全案托管 -->
+                        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden card-hover">
+                            <div class="bg-secondary-100 dark:bg-secondary-900 p-4">
+                                <h4 class="text-xl font-bold text-secondary-700 dark:text-secondary-300">全案托管</h4>
+                            </div>
+                            <div class="p-6">
+                                <div class="mb-4">
+                                    <h5 class="font-bold mb-2">设计师做什么</h5>
+                                    <p>从设计、施工、买主材、买软装（家具窗帘那些）、买设备（空调地暖啥的），一条龙全包了。</p>
+                                </div>
+                                <div class="mb-4">
+                                    <h5 class="font-bold mb-2">你做什么</h5>
+                                    <p>给钱就行。</p>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold mb-2">特点</h5>
+                                    <p>从头到尾什么都不用你管，基本就是拎包入住的感觉。</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 设计+施工 -->
+                        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden card-hover">
+                            <div class="bg-secondary-100 dark:bg-secondary-900 p-4">
+                                <h4 class="text-xl font-bold text-secondary-700 dark:text-secondary-300">设计+施工</h4>
+                            </div>
+                            <div class="p-6">
+                                <div class="mb-4">
+                                    <h5 class="font-bold mb-2">设计师做什么</h5>
+                                    <p>负责设计，也负责施工（或者推荐施工队），会给你推荐主材，搭配软装。</p>
+                                </div>
+                                <div class="mb-4">
+                                    <h5 class="font-bold mb-2">你做什么</h5>
+                                    <p>自己去买主材，自己去买软装。</p>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold mb-2">特点</h5>
+                                    <p>设计和施工可能是分开的，施工那块儿就又涉及到前面说的全包、半包、清包的问题了。</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 纯设计 -->
+                        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden card-hover">
+                            <div class="bg-secondary-100 dark:bg-secondary-900 p-4">
+                                <h4 class="text-xl font-bold text-secondary-700 dark:text-secondary-300">纯设计</h4>
+                            </div>
+                            <div class="p-6">
+                                <div class="mb-4">
+                                    <h5 class="font-bold mb-2">设计师做什么</h5>
+                                    <p>就出设计图、施工图，给你推荐用啥主材、怎么搭配软装。</p>
+                                </div>
+                                <div class="mb-4">
+                                    <h5 class="font-bold mb-2">你做什么</h5>
+                                    <p>自己找施工队，自己买主材，自己买软装。</p>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold mb-2">特点</h5>
+                                    <p>设计师只管"纸上谈兵"，剩下的落地执行都得你自己搞定。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="mt-6">所以你看，装修这事儿，合作方式挺多的，关键是搞清楚你想要什么，你有多少时间精力，然后找个适合你的模式和靠谱的人。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 装修流程 -->
+        <section id="process" class="mb-16 fade-in">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-mono font-bold text-primary-700 dark:text-primary-300 mb-8 text-center">装修流程</h2>
+                <p class="mb-6">了解了找谁干活（装修公司、工作室、设计师），还有怎么跟他们打交道之后，还要弄明白装修到底是怎么一步步搞定的。</p>
+                
+                <!-- 流程时间线 -->
+                <div class="relative border-l-4 border-primary-500 dark:border-primary-700 ml-6 pl-8 pb-8">
+                    <!-- 开工前 -->
+                    <div class="mb-10 relative">
+                        <div class="absolute -left-12 top-0 w-8 h-8 bg-primary-500 dark:bg-primary-700 rounded-full flex items-center justify-center text-white font-bold">1</div>
+                        <h3 class="text-2xl font-bold mb-4 text-primary-600 dark:text-primary-400">开工前要做什么？（前期准备）</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle mt-1 mr-2 text-primary-500"></i>
+                                <span><strong>收房验房：</strong>开发商给你钥匙的时候，别傻乎乎就收了，得自己（或者请人）好好检查房子，墙有没有空鼓、裂缝什么的，都得看仔细。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle mt-1 mr-2 text-primary-500"></i>
+                                <span><strong>想好要什么样、花多少钱：</strong>自己心里得有个谱，想装成什么风格？要实现哪些功能？准备花多少钱？还得留点备用金，以防万一。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle mt-1 mr-2 text-primary-500"></i>
+                                <span><strong>找靠谱的公司/人：</strong>上小红书看看，或者实地去转转，找个口碑好的设计公司或者装修公司/施工队。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle mt-1 mr-2 text-primary-500"></i>
+                                <span><strong>签合同：</strong>跟定下来的人签正式合同，预算、用什么材料、设计图、工钱这些都得白纸黑字写清楚。</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 设计师出马 -->
+                    <div class="mb-10 relative">
+                        <div class="absolute -left-12 top-0 w-8 h-8 bg-primary-500 dark:bg-primary-700 rounded-full flex items-center justify-center text-white font-bold">2</div>
+                        <h3 class="text-2xl font-bold mb-4 text-primary-600 dark:text-primary-400">设计师出马（设计阶段）</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle mt-1 mr-2 text-primary-500"></i>
+                                <span><strong>沟通定方案：</strong>设计师会上门看看你家情况，跟你聊你的生活习惯、喜好，然后一起敲定最终的设计方案。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle mt-1 mr-2 text-primary-500"></i>
+                                <span><strong>挑材料：</strong>拿着设计方案去选主要的材料（地板、瓷砖、油漆什么的）和辅助材料（水泥、沙子、腻子粉什么的），把牌子、颜色、型号、价格都确认好。</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 叮叮哐哐开干 -->
+                    <div class="mb-10 relative">
+                        <div class="absolute -left-12 top-0 w-8 h-8 bg-primary-500 dark:bg-primary-700 rounded-full flex items-center justify-center text-white font-bold">3</div>
+                        <h3 class="text-2xl font-bold mb-4 text-primary-600 dark:text-primary-400">叮叮哐哐开干（施工阶段）</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle mt-1 mr-2 text-primary-500"></i>
+                                <span><strong>拆拆改改：</strong>先把该砸的墙砸了，该砌的墙砌起来，阳台封不封，窗户换不换，都在这步搞定。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle mt-1 mr-2 text-primary-500"></i>
+                                <span><strong>弄水电：</strong>想好水龙头、开关、灯、插座都安在哪儿，设计方案里确定下来，然后工人师傅就开槽、埋管、穿线。弄完要检查测试，确保没问题。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle mt-1 mr-2 text-primary-500"></i>
+                                <span><strong>贴砖抹灰（瓦工）：</strong>贴瓷砖、把地面弄平、刷防水层，这些都是瓦工师傅的活儿。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle mt-1 mr-2 text-primary-500"></i>
+                                <span><strong>做木工活儿：</strong>做吊顶、打柜子（衣柜、鞋柜、电视柜什么的），这些是木工师傅干。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle mt-1 mr-2 text-primary-500"></i>
+                                <span><strong>刷墙刷漆（油漆工）：</strong>把墙面基层处理好，然后刷腻子、刷油漆，家具要刷漆也在这步。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle mt-1 mr-2 text-primary-500"></i>
+                                <span><strong>装东西（安装环节）：</strong>厨房卫生间的吊顶、橱柜、油烟机灶具、地板、壁纸、开关插座、灯、马桶、花洒……一堆东西都等着这时候装上去。</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 收尾验货 -->
+                    <div class="mb-10 relative">
+                        <div class="absolute -left-12 top-0 w-8 h-8 bg-primary-500 dark:bg-primary-700 rounded-full flex items-center justify-center text-white font-bold">4</div>
+                        <h3 class="text-2xl font-bold mb-4 text-primary-600 dark:text-primary-400">收尾验货（验收与收尾）</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle mt-1 mr-2 text-primary-500"></i>
+                                <span><strong>最后检查（竣工验收）：</strong>所有活儿干完，一项一项对照着设计图和标准检查，看有没有问题，有的话赶紧让他们整改。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle mt-1 mr-2 text-primary-500"></i>
+                                <span><strong>大扫除（开荒保洁）：</strong>工地肯定脏乱差，得找人或者自己来个彻底大扫除，把垃圾灰尘都弄干净。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle mt-1 mr-2 text-primary-500"></i>
+                                <span><strong>摆家具、搞软装：</strong>把买的家具、家电搬进来摆好，窗帘挂上，装饰画摆上，让家看起来更温馨。</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 搬新家 -->
+                    <div class="relative">
+                        <div class="absolute -left-12 top-0 w-8 h-8 bg-primary-500 dark:bg-primary-700 rounded-full flex items-center justify-center text-white font-bold">5</div>
+                        <h3 class="text-2xl font-bold mb-4 text-primary-600 dark:text-primary-400">搬新家（入住）</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle mt-1 mr-2 text-primary-500"></i>
+                                <span><strong>通风散味儿：</strong>刚装完的房子味儿大，得开窗通风，最好再检测下甲醛超不超标，安全了再搬。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check-circle mt-1 mr-2 text-primary-500"></i>
+                                <span><strong>正式入住：</strong>手续都办妥，空气也达标了，就可以开开心心搬进新家啦！</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 装修预算 -->
+        <section id="budget" class="mb-16 fade-in">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-mono font-bold text-primary-700 dark:text-primary-300 mb-8 text-center">装修预算怎么搞</h2>
+                <p class="mb-6">装修前，大家最头疼的就是钱的事儿。想把预算搞明白，得琢磨下面这几点：</p>
+                
+                <!-- 预算卡片 -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- 风格与预算 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mr-4">
+                                <i class="fa-solid fa-paint-roller text-2xl text-primary-600 dark:text-primary-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">想装成什么样？</h3>
+                        </div>
+                        <p>先想好你家要装成什么风格，是简单点还是豪华点？这决定了钱的大头往哪花。比如，简单风一般花钱少，豪华风那预算就得往高了准备。</p>
+                    </div>
+                    
+                    <!-- 基础工程 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mr-4">
+                                <i class="fa-solid fa-hammer text-2xl text-primary-600 dark:text-primary-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">基础工程和重点地方先花钱</h3>
+                        </div>
+                        <p>像水电改造、刷墙这种基础活儿，是保证房子质量和能正常住的关键，必须先紧着这块花钱，大概占总钱数的15%到40%。厨房和卫生间天天用，也得多花点心思和钱。</p>
+                    </div>
+                    
+                    <!-- 材料费和人工费 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mr-4">
+                                <i class="fa-solid fa-coins text-2xl text-primary-600 dark:text-primary-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">材料钱和人工费</h3>
+                        </div>
+                        <p>材料费是大头，差不多占总预算的30%到60%，工人师傅的工钱大概占20%到30%。买主要材料的时候，得看性价比，别买超了。</p>
+                    </div>
+                    
+                    <!-- 设计费和软装钱 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mr-4">
+                                <i class="fa-solid fa-couch text-2xl text-primary-600 dark:text-primary-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">设计费和软装钱</h3>
+                        </div>
+                        <p>请设计师的钱大概占5%到10%，买家具、窗帘这些软装的钱占20%到30%。花点设计费能让你家空间更好用、住着更舒服。软装，可以不着急，住进去后慢慢添。</p>
+                    </div>
+                    
+                    <!-- 留点活钱 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mr-4">
+                                <i class="fa-solid fa-piggy-bank text-2xl text-primary-600 dark:text-primary-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">留点活钱</h3>
+                        </div>
+                        <p>手里得留个10%到15%的备用金，万一材料涨价、想法变了或者施工时出点什么意外，有钱应对。</p>
+                    </div>
+                    
+                    <!-- 家里人需要什么 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mr-4">
+                                <i class="fa-solid fa-users text-2xl text-primary-600 dark:text-primary-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">家里人需要什么？</h3>
+                        </div>
+                        <p>看看家里人有什么需求，钱要花在刀刃上。比如卧室可以省着点，客厅、厨房这种大家常用的地方就可以多投入点。</p>
+                    </div>
+                </div>
+                
+                <!-- 硬装软装比例 -->
+                <div class="mt-8 bg-primary-50 dark:bg-slate-700 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4 text-primary-700 dark:text-primary-300">硬装软装怎么分钱？</h3>
+                    <p class="mb-4">硬装（就是拆不走的那些）和软装（家具电器窗帘这些的）的钱，比例大概是1:1或者1:2。硬装要保证质量，软装可以根据预算慢慢来。</p>
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-lg">
+                        <h4 class="font-bold mb-4">举个例子：</h4>
+                        <p>假如你有50万，装个100平的房子，大概是这么分的：施工费15万，买主材20万，家电7万，家具窗帘这些软装8万。(这只是个大概，具体还得看你怎么选)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 工期安排 -->
+        <section id="timeline" class="mb-16 fade-in">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-mono font-bold text-primary-700 dark:text-primary-300 mb-8 text-center">装修要多久？</h2>
+                <p class="mb-6">除了钱，大家最关心的就是装修要花多长时间了，毕竟这直接关系到我们什么时候能搬进去住。把工期安排明白了，能省不少因为拖拖拉拉产生的冤枉钱。</p>
+                
+                <!-- 工期卡片 -->
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- 找对干活的人 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 bg-secondary-100 dark:bg-secondary-900 rounded-full flex items-center justify-center mr-3">
+                                <i class="fa-solid fa-user-check text-xl text-secondary-600 dark:text-secondary-400"></i>
+                            </div>
+                            <h3 class="text-lg font-bold">找对干活的人</h3>
+                        </div>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check mt-1 mr-2 text-secondary-500"></i>
+                                <span><strong>上网查查：</strong>一定要找正规的、名声好的、大家说不错的装修公司或施工队。可以上小红书之类的平台看看他们的信息、以前干的怎么样、别人怎么评价的。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check mt-1 mr-2 text-secondary-500"></i>
+                                <span><strong>去工地看看：</strong>最好亲自去他们正在干活的工地看看，看看活儿干得细不细、现场管得乱不乱、工人师傅手艺行不行。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check mt-1 mr-2 text-secondary-500"></i>
+                                <span><strong>别找"马路游击队"：</strong>尽量别找那种没资质的"野路子"施工队，也别太信熟人介绍的，万一后面出问题，人都找不着，麻烦得很。</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 把想法说明白 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 bg-secondary-100 dark:bg-secondary-900 rounded-full flex items-center justify-center mr-3">
+                                <i class="fa-solid fa-comments text-xl text-secondary-600 dark:text-secondary-400"></i>
+                            </div>
+                            <h3 class="text-lg font-bold">把想法说明白</h3>
+                        </div>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check mt-1 mr-2 text-secondary-500"></i>
+                                <span><strong>好好沟通：</strong>在定设计方案的时候，跟你家设计师把你的要求、喜欢什么样、有多少预算、平时怎么住都聊透了，保证设计出来的东西是你想要的。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check mt-1 mr-2 text-secondary-500"></i>
+                                <span><strong>抠细节：</strong>设计方案出来后，仔细看，房间怎么分、用什么材料、怎么施工，每个小地方都要弄得清清楚楚，别留模糊的地方。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check mt-1 mr-2 text-secondary-500"></i>
+                                <span><strong>少改主意：</strong>设计方案一旦定下来，就尽量别老是变来变去了。一改就容易加钱、拖时间。</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 合同要签细 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 bg-secondary-100 dark:bg-secondary-900 rounded-full flex items-center justify-center mr-3">
+                                <i class="fa-solid fa-file-contract text-xl text-secondary-600 dark:text-secondary-400"></i>
+                            </div>
+                            <h3 class="text-lg font-bold">合同要签细</h3>
+                        </div>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check mt-1 mr-2 text-secondary-500"></i>
+                                <span><strong>时间写清楚：</strong>合同里必须明明白白写清楚什么时候开工、什么时候完工，总共需要多少天。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check mt-1 mr-2 text-secondary-500"></i>
+                                <span><strong>拖工期怎么办：</strong>写清楚要是装修公司那边原因搞得延期了，他们得怎么赔。一般可以约定一天罚多少钱，或者约定要是拖太久，你有权不让他们干了，还得赔你损失。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check mt-1 mr-2 text-secondary-500"></i>
+                                <span><strong>中途改动怎么办：</strong>合同里也要说好，要是干活中间想改设计或者加减项目，双方怎么商量、怎么签字确认，会不会影响完工时间，都要写明白。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check mt-1 mr-2 text-secondary-500"></i>
+                                <span><strong>怎么付款：</strong>最好是分阶段给钱，比如干完水电给一部分，干完瓦工再给一部分，按进度来，别一下子把钱全给完了，手里留点主动权。</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 装修材料 -->
+        <section id="materials" class="mb-16 fade-in">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-mono font-bold text-primary-700 dark:text-primary-300 mb-8 text-center">装修材料怎么选</h2>
+                <p class="mb-6">选装修材料这事儿挺关键的，主要得看下面这几点，照着这个思路去挑准没错：</p>
+                
+                <!-- 材料选择标准 -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- 健康环保 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mr-4">
+                                <i class="fa-solid fa-leaf text-2xl text-green-600 dark:text-green-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">健不健康？（环保性）</h3>
+                        </div>
+                        <p>挑材料得选国家标准说合格的，甲醛、苯这些越少越好。最好是找有国家环保认证的，比如包装上写着E0级或者有"十环认证"标志的。</p>
+                    </div>
+                    
+                    <!-- 结实耐用 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-4">
+                                <i class="fa-solid fa-shield-alt text-2xl text-blue-600 dark:text-blue-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">结不结实？（耐用性）</h3>
+                        </div>
+                        <p>材料得耐磨、不容易脏、不怕水、不容易发霉。比如厨房、卫生间就得选防水、防滑、耐磨的，像瓷砖、强化地板这种就比较合适。</p>
+                    </div>
+                    
+                    <!-- 安全性 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-red-100 dark:bg-red-900 rounded-full flex items-center justify-center mr-4">
+                                <i class="fa-solid fa-fire-extinguisher text-2xl text-red-600 dark:text-red-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">安不安全？（安全性）</h3>
+                        </div>
+                        <p>材料得防火、防水，达到安全标准。特别是在厨房、卫生间这种地方，要用防火等级高点的材料，安全第一。</p>
+                    </div>
+                    
+                    <!-- 功能性 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mr-4">
+                                <i class="fa-solid fa-cogs text-2xl text-purple-600 dark:text-purple-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">好不好用？（功能性）</h3>
+                        </div>
+                        <p>看用在哪个地方选什么材料。比如厨房要用耐热、不怕水的；卧室就得考虑舒服、隔音好不好。</p>
+                    </div>
+                    
+                    <!-- 美观性 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-pink-100 dark:bg-pink-900 rounded-full flex items-center justify-center mr-4">
+                                <i class="fa-solid fa-paint-brush text-2xl text-pink-600 dark:text-pink-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">好不好看？（美观性）</h3>
+                        </div>
+                        <p>材料的颜色、花纹、样式得跟你家整体风格搭调，让家里看起来更漂亮。</p>
+                    </div>
+                    
+                    <!-- 性价比 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-yellow-100 dark:bg-yellow-900 rounded-full flex items-center justify-center mr-4">
+                                <i class="fa-solid fa-balance-scale text-2xl text-yellow-600 dark:text-yellow-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">值不值？（性价比）</h3>
+                        </div>
+                        <p>在你的预算里，挑划算的材料。别追求贵的，也想想以后用起来省不省心，别光看眼前便宜。</p>
+                    </div>
+                </div>
+                
+                <!-- 维护性 -->
+                <div class="mt-6 bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-teal-100 dark:bg-teal-900 rounded-full flex items-center justify-center mr-4">
+                            <i class="fa-solid fa-broom text-2xl text-teal-600 dark:text-teal-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">好不好打理？（维护性）</h3>
+                    </div>
+                    <p>选容易擦、好收拾的材料，以后搞卫生省事儿，也省钱。</p>
+                </div>
+                
+                <div class="mt-6 bg-primary-50 dark:bg-slate-700 p-6 rounded-lg">
+                    <p class="italic">还有个小提醒：如果你想具体了解某一种材料，比如地板、油漆什么的，可以上小红书搜搜看，上面有各种各样的分享。不过，网上的信息真真假假，你得自己多看看，留个心眼儿判断一下。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 售后保修 -->
+        <section id="warranty" class="mb-16 fade-in">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-mono font-bold text-primary-700 dark:text-primary-300 mb-8 text-center">装修完了不是终点，售后保修得知道</h2>
+                <p class="mb-6">装修完了，别以为就万事大吉了，后面的售后和保修也很重要，这可是保护你权利的关键环节。主要得注意这几点：</p>
+                
+                <!-- 售后保修卡片 -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- 保修期限 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mr-4">
+                                <i class="fa-solid fa-calendar-alt text-2xl text-primary-600 dark:text-primary-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">保修多久？（保修期限）</h3>
+                        </div>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check mt-1 mr-2 text-primary-500"></i>
+                                <span>像墙面、地面、吊顶这种基础装修，一般保修2到5年；水电这种隐蔽工程比较重要，保修期长一些，通常是5到10年；买的家具家电就按厂家自己的保修政策来。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check mt-1 mr-2 text-primary-500"></i>
+                                <span>防水工程特别关键，一般至少保修5年，厨房、卫生间这些地方一定要看清楚。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check mt-1 mr-2 text-primary-500"></i>
+                                <span>签合同的时候，一定要把保修范围和时间写得明明白白，这样万一后面出了问题，找他们修才方便。</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 保修范围 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mr-4">
+                                <i class="fa-solid fa-clipboard-list text-2xl text-primary-600 dark:text-primary-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">什么情况给保修？（保修范围）</h3>
+                        </div>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check mt-1 mr-2 text-primary-500"></i>
+                                <span>保修主要是针对施工质量本身出的问题。如果你自己使用不当或者没好好保养弄坏了，那一般是不在保修范围内的。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check mt-1 mr-2 text-primary-500"></i>
+                                <span>如果是人为损坏，或者不是施工质量问题导致的毛病，装修公司来修可能就只收个材料费和人工费了。</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 售后服务内容 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mr-4">
+                                <i class="fa-solid fa-headset text-2xl text-primary-600 dark:text-primary-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">售后都管什么？（售后服务内容）</h3>
+                        </div>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check mt-1 mr-2 text-primary-500"></i>
+                                <span>在保修期内，装修公司应该免费帮你修，比如检查施工质量好不好、调试设备、维护家电什么的。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check mt-1 mr-2 text-primary-500"></i>
+                                <span>靠谱的公司在保修期内，应该会定期（比如每个月）给你打个电话或者发微信回访一下，问问你住得怎么样，有没有什么问题，有的话赶紧帮你解决。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check mt-1 mr-2 text-primary-500"></i>
+                                <span>要是遇到水电这种急事儿，他们应该快速响应（比如几小时内回话），尽快安排人来修（比如24小时内）。</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 服务响应时间 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mr-4">
+                                <i class="fa-solid fa-clock text-2xl text-primary-600 dark:text-primary-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">多久能来修？（服务响应时间）</h3>
+                        </div>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check mt-1 mr-2 text-primary-500"></i>
+                                <span>一般来说，你报修之后，装修公司应该在24小时内安排师傅上门。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check mt-1 mr-2 text-primary-500"></i>
+                                <span>有些合同可能会约定得更细，比如特别紧急的情况或者特定区域要求更快响应和维修。（具体看合同怎么写的）</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 合同与凭证保留 -->
+                <div class="mt-6 grid md:grid-cols-2 gap-6">
+                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mr-4">
+                                <i class="fa-solid fa-file-contract text-2xl text-primary-600 dark:text-primary-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">合同票据收好了（合同与凭证保留）</h3>
+                        </div>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check mt-1 mr-2 text-primary-500"></i>
+                                <span>签合同的时候，关于保修的条款、范围、责任划分，一定要看仔细，写清楚，省得以后扯皮。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check mt-1 mr-2 text-primary-500"></i>
+                                <span>装修合同、各种发票、保修卡这些东西都得好好收着，万一要用的时候能拿得出来当证据。</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 常见问题处理 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 card-hover">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mr-4">
+                                <i class="fa-solid fa-question-circle text-2xl text-primary-600 dark:text-primary-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">出了问题怎么办？（常见问题处理）</h3>
+                        </div>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check mt-1 mr-2 text-primary-500"></i>
+                                <span>要是装修公司拖着不给你解决保修问题，你可以去消费者协会投诉，或者通过打官司来维护自己的权利。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check mt-1 mr-2 text-primary-500"></i>
+                                <span>如果问题不是施工质量引起的，那就跟装修公司好好商量着解决。</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 后期延伸服务 -->
+                <div class="mt-6 bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mr-4">
+                            <i class="fa-solid fa-tools text-2xl text-primary-600 dark:text-primary-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">保修期过了怎么办？（后期延伸服务）</h3>
+                    </div>
+                    <p>就算过了保修期，靠谱的装修公司还是可以提供收费的维修服务的。他们可能还会不定期回访你，听听你的意见，这样他们也能改进服务。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 小红书高赞内容 -->
+        <section id="tips" class="mb-16 fade-in">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-mono font-bold text-primary-700 dark:text-primary-300 mb-8 text-center">小红书高赞装修技巧</h2>
+                <p class="mb-6 text-center">以下是小红书高赞内容的精华总结。这些内容仅供参考，需要根据自己的实际情况进行甄别和选择。</p>
+                
+                <!-- 高赞内容折叠面板 -->
+                <div class="hs-accordion-group">
+                    <!-- 装修工期 -->
+                    <div class="hs-accordion bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden mb-4 card-hover" id="tip-1">
+                        <button class="hs-accordion-toggle flex justify-between items-center w-full p-6 text-left" aria-controls="tip-1-collapse">
+                            <span class="font-bold text-lg">装修切不可一味赶工期，这五个时间节点务必要暂停施工</span>
+                            <i class="fa-solid fa-chevron-down transition-transform"></i>
+                        </button>
+                        <div id="tip-1-collapse" class="hs-accordion-content hidden px-6 pb-6" aria-labelledby="tip-1">
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle mt-1 mr-2 text-primary-500 text-xs"></i>
+                                    <span>水电改造后停工两天，包隔音棉（防下水噪音）。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle mt-1 mr-2 text-primary-500 text-xs"></i>
+                                    <span>卫生间防水后停工两天，做闭水试验（检查是否漏水）。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle mt-1 mr-2 text-primary-500 text-xs"></i>
+                                    <span>瓷砖铺贴后停工，夏季一周，冬季15天，等水泥干透再美缝（防美缝剂脱落）。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle mt-1 mr-2 text-primary-500 text-xs"></i>
+                                    <span>吊顶后停工两天，等全屋定制和木门测量（避免耽误工期）。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle mt-1 mr-2 text-primary-500 text-xs"></i>
+                                    <span>第一遍腻子后停工2-3天，干透再刷第二遍（防墙面开裂）。</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- 装修师傅不会主动提醒 -->
+                    <div class="hs-accordion bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden mb-4 card-hover" id="tip-2">
+                        <button class="hs-accordion-toggle flex justify-between items-center w-full p-6 text-left" aria-controls="tip-2-collapse">
+                            <span class="font-bold text-lg">装修师傅为了省事不会主动提醒的安装细节</span>
+                            <i class="fa-solid fa-chevron-down transition-transform"></i>
+                        </button>
+                        <div id="tip-2-collapse" class="hs-accordion-content hidden px-6 pb-6" aria-labelledby="tip-2">
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle mt-1 mr-2 text-primary-500 text-xs"></i>
+                                    <span>卫生间吊顶不装止逆阀导致异味。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle mt-1 mr-2 text-primary-500 text-xs"></i>
+                                    <span>橱柜板材切割处不贴收边条导致发霉。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle mt-1 mr-2 text-primary-500 text-xs"></i>
+                                    <span>花洒出水口不用防霉胶封堵导致墙面问题。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle mt-1 mr-2 text-primary-500 text-xs"></i>
+                                    <span>浴室柜不提前装下水止逆阀导致反水。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle mt-1 mr-2 text-primary-500 text-xs"></i>
+                                    <span>台面安装使用劣质玻璃胶导致开裂发霉。</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- 装修选择 -->
+                    <div class="hs-accordion bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden mb-4 card-hover" id="tip-3">
+                        <button class="hs-accordion-toggle flex justify-between items-center w-full p-6 text-left" aria-controls="tip-3-collapse">
+                            <span class="font-bold text-lg">不听长辈建议，坚持自己的装修选择</span>
+                            <i class="fa-solid fa-chevron-down transition-transform"></i>
+                        </button>
+                        <div id="tip-3-collapse" class="hs-accordion-content hidden px-6 pb-6" aria-labelledby="tip-3">
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle mt-1 mr-2 text-primary-500 text-xs"></i>
+                                    <span>选用柔光砖通铺，避免反光，更显宽敞。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle mt-1 mr-2 text-primary-500 text-xs"></i>
+                                    <span>卫生间选用星光干粒面白胚莱姆石瓷砖，一石十二面，两片到顶。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle mt-1 mr-2 text-primary-500 text-xs"></i>
+                                    <span>美缝选用与砖同色的华阳采砂，实现无缝效果。</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- 装修推荐选择 -->
+                    <div class="hs-accordion bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden mb-4 card-hover" id="tip-4">
+                        <button class="hs-accordion-toggle flex justify-between items-center w-full p-6 text-left" aria-controls="tip-4-collapse">
+                            <span class="font-bold text-lg">装修推荐选择</span>
+                            <i class="fa-solid fa-chevron-down transition-transform"></i>
+                        </button>
+                        <div id="tip-4-collapse" class="hs-accordion-content hidden px-6 pb-6" aria-labelledby="tip-4">
+                            <p>哑光砖、大平顶、纯色、棉麻沙发、无主灯、打通阳台、全屋通铺、磁吸静音锁、乳胶漆、大单槽、干湿分离卫生间、名牌卫浴、蜂窝大板吊顶、斜五孔插座。</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 装修工人为省事 -->
+                    <div class="hs-accordion bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden mb-4 card-hover" id="tip-5">
+                        <button class="hs-accordion-toggle flex justify-between items-center w-full p-6 text-left" aria-controls="tip-5-collapse">
+                            <span class="font-bold text-lg">装修工人为省事、多赚钱，不会主动告知业主的几个方面</span>
+                            <i class="fa-solid fa-chevron-down transition-transform"></i>
+                        </button>
+                        <div id="tip-5-collapse" class="hs-accordion-content hidden px-6 pb-6" aria-labelledby="tip-5">
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle mt-1 mr-2 text-primary-500 text-xs"></i>
+                                    <span><strong>砸墙师傅：</strong>不弹线切割，直接砸墙，省事多赚。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle mt-1 mr-2 text-primary-500 text-xs"></i>
+                                    <span><strong>水电师傅：</strong>不说明水电走顶走地功能无差异，走顶更赚钱。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle mt-1 mr-2 text-primary-500 text-xs"></i>
+                                    <span><strong>防水师傅：</strong>不做防水前处理（清理灰尘、堵漏王、止水坎），早完工。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle mt-1 mr-2 text-primary-500 text-xs"></i>
+                                    <span><strong>瓦工师傅：</strong>贴砖时才提增项（全屋通铺、海棠角、包管道等），逼业主加钱。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle mt-1 mr-2 text-primary-500 text-xs"></i>
+                                    <span><strong>木工师傅：</strong>推荐木龙骨吊顶（施工快），不推荐轻钢龙骨（坚固耐用但施工慢）。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fa-solid fa-circle mt-1 mr-2 text-primary-500 text-xs"></i>
+                                    <span><strong>油工师傅：</strong>不提墙面刮腻子前刷墙固（防潮防霉，增强附着力）。</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- 更多高赞内容按钮 -->
+                    <div class="text-center mt-8">
+                        <button id="show-more-tips" class="bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-lg transition-colors duration-300 transform hover:scale-105">
+                            查看更多装修技巧
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 关于飞屋设计 -->
+        <section class="mb-16 fade-in">
+            <div class="max-w-4xl mx-auto bg-gradient-to-r from-primary-50 to-secondary-50 dark:from-primary-900 dark:to-secondary-900 rounded-lg shadow-md p-8">
+                <h2 class="text-3xl font-mono font-bold text-primary-700 dark:text-primary-300 mb-6 text-center">关于飞屋设计</h2>
+                
+                <div class="prose prose-lg max-w-none dark:prose-invert">
+                    <p class="mb-4">首先感谢你愿意花时间阅读这封给你的信。我们知道现代人阅读长文字，不是一件容易的事。因此，我们希望这封信即使没能让你和我们有眼缘，也能在未来对于你挑选家装服务有些许的帮助。</p>
+                    
+                    <h3 class="text-xl font-bold mb-3 text-primary-600 dark:text-primary-400">关于家装，我们想说的话</h3>
+                    <p class="mb-4">可能你在看到这封信前，就了解过家装；可能你曾经历过家装；可能你还没有来得及了解过。不管怎么样，我想家装给你的感觉，大概就是复杂不懂且充满各种"陷阱"的一件事。很抱歉，作为行业从业者，一个家装服务提供商。我们为我们行业带给众多消费者不好的家装体验而致歉。家装本应是一件充满体验和向往的事情，毕竟家装的起点，是源于我们对美好生活的憧憬而开始的。那为什么家装会有各种问题的产生呢？这是我们一直在思考的问题。也是我们希望能凭我们些许的努力为行业做些改变的事情。我们认为，家装行业有做好家装的能力，但却缺乏做好家装的态度。一个对于家装有敬畏之心的态度。</p>
+                    <p class="mb-4 font-bold text-center">我们相信，为消费者提供优质的家装服务，是这个行业存在的唯一理由。</p>
+                    <p class="mb-4 font-bold text-center">如果不是，我们宁愿请愿，让这个行业从此消失。</p>
+                    
+                    <h3 class="text-xl font-bold mb-3 text-primary-600 dark:text-primary-400">关于我们，想让你知道的事</h3>
+                    <p class="mb-4">我们是一家设计公司。我们想刻意的强调一下，我们是一家设计公司，而不是常见的装修公司。</p>
+                    <p class="mb-4">我们作为一家企业，一个组织。设计服务费是我们唯一的收入来源，没有之一。</p>
+                    <p class="mb-4">可能你会奇怪，这有什么值得一说吗？</p>
+                    <p class="mb-4 italic">"当我们选择用什么喂养自己时，我们就会对什么而有敬畏之心，因为这是生存问题。"</p>
+                    <p class="mb-4">设计服务费，作为我们公司生存的唯一支柱。我们深知，我们只有做好设计、做好服务，才能获得「你」的认可，我们才有机会在这个市场中存活下去。也因此，这也就让我们断绝了很多其他的有可能会伤害「你」的家装体验的事情。</p>
+                    <p class="mb-4">设计服务费作为我们的唯一收入来源，能让我们在不断精进于为「你」提供更好的家装服务这件事上坚定的走下去。说到这里，可能你会有疑问，设计公司只提供设计服务，那施工呢？关于施工，我们希望你可以有选择权，我们会推荐施工方与你合作，或者你指定施工方。而我们的设计服务中包含了，提供施工过程的设计落地服务。我们将参与家装全程，也包括整个施工过程。以保证最终的落地效果就是我们与你一起完成的，你家的设计蓝图。</p>
+                    
+                    <h3 class="text-xl font-bold mb-3 text-primary-600 dark:text-primary-400">关于设计，我们想要提醒的事</h3>
+                    <p class="mb-4">每一个房屋的设计，对于我们来说都是值得骄傲的"作品"。因此，我们认为设计本身有它独立的价值。</p>
+                    <p class="mb-4">我们没有按照行业传统，通过计算房屋面积，计算设计费。我们按照服务投入标准，收取统一的设计服务费，就目前而言，我们的设计服务费是3万/套。所以，房屋面积大小对于我们服务投入标准来说，没有分别。</p>
+                    <p class="mb-4">最后，我们想提醒一点。设计是一个见仁见智的主观事情。所以，如果你在真正了解我们之后，仍然怀疑我们能否做出让你满意的项目，那么我们建议，你可以考虑换一家设计公司。我们真诚希望你可以找到适合你的那个设计公司。如果你需要，我们也可以提供力所能及的帮助，帮助你找到适合你的家装公司。我们目前还在持续努力提高我们的服务能力和服务范围，以满足不同地方的不同的「你」的个性化需求。</p>
+                    
+                    <p class="mt-8 text-center">最后的最后，如果你喜欢我们，那就立刻联系我们。我们期待，你能邀请我们，参与到你未来美好生活蓝图的设计中。如果你觉得我们还不错，也请你关注我们、鼓励我们，这也是对我们的支持。</p>
+                    <p class="text-center">同时，我们也邀请你，将我们这家想努力为更多人提供优质家装服务体验的公司，分享给更多人看见。</p>
+                    <p class="text-center font-bold">衷心感谢你愿意花时间了解我们，也感谢你对我们飞屋设计的支持和关注。</p>
+                    <p class="text-center text-xl font-bold text-primary-600 dark:text-primary-400 mt-6">飞屋设计的是你的生活，而不仅是你的房子。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 联系我们 -->
+    <section id="contact" class="py-16 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12 fade-in">
+                    <h2 class="heading text-2xl md:text-3xl font-bold text-primary-700 dark:text-primary-300 mb-4">
+                        联系我们
+                    </h2>
+                    <p class="body-text text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                        准备开始你的装修之旅？扫码添加我们的企业微信进行咨询
+                    </p>
+                </div>
+                
+                <div class="flex justify-center fade-in">
+                    <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md max-w-xs">
+                        <img src="https://i.postimg.cc/PrWjF2wZ/SCR-20250402-oojj.jpg" alt="扫码加企业微信咨询" class="w-full h-auto rounded-md">
+                        <p class="text-center mt-4 text-gray-700 dark:text-gray-300 font-mono">
+                            扫码添加企业微信
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="mt-16 grid md:grid-cols-3 gap-8 fade-in">
+                    <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md text-center">
+                        <div class="inline-block bg-primary-100 dark:bg-primary-800 rounded-full p-4 mb-4">
+                            <i class="fa-solid fa-location-dot text-2xl text-primary-600 dark:text-primary-300"></i>
+                        </div>
+                        <h3 class="heading font-bold text-gray-800 dark:text-gray-200 mb-2">地址</h3>
+                        <p class="body-text text-gray-700 dark:text-gray-300">
+                            深圳宝安区玖悦雅轩商业裙楼瑞思空间-飞屋设计
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md text-center">
+                        <div class="inline-block bg-primary-100 dark:bg-primary-800 rounded-full p-4 mb-4">
+                            <i class="fa-solid fa-phone text-2xl text-primary-600 dark:text-primary-300"></i>
+                        </div>
+                        <h3 class="heading font-bold text-gray-800 dark:text-gray-200 mb-2">电话</h3>
+                        <p class="body-text text-gray-700 dark:text-gray-300">
+                            17724631620
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md text-center">
+                        <div class="inline-block bg-primary-100 dark:bg-primary-800 rounded-full p-4 mb-4">
+                            <i class="fa-solid fa-envelope text-2xl text-primary-600 dark:text-primary-300"></i>
+                        </div>
+                        <h3 class="heading font-bold text-gray-800 dark:text-gray-200 mb-2">邮箱</h3>
+                        <p class="body-text text-gray-700 dark:text-gray-300">
+                            service@feiwu.design
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h3 class="text-xl font-mono font-bold mb-4">飞屋设计</h3>
+                <p class="mb-4">飞屋设计的是你的生活，而不仅是你的房子。</p>
+                <div class="mb-4">
+                    <p>作者：飞屋设计团队</p>
+                </div>
+                <p class="text-gray-500">&copy; 2025 飞屋设计 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary-600 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-primary-700">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // 深色模式切换
+        const themeToggle = document.getElementById('theme-toggle');
+        
+        // 检查系统偏好
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        
+        // 切换按钮事件
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+        });
+        
+        // 返回顶部按钮
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.add('opacity-0', 'invisible');
+                backToTopButton.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 查看更多装修技巧按钮
+        document.getElementById('show-more-tips').addEventListener('click', function() {
+            this.textContent = this.textContent === '查看更多装修技巧' ? '收起更多装修技巧' : '查看更多装修技巧';
+            
+            // 这里可以添加更多技巧的展示逻辑
+            alert('更多装修技巧正在整理中，敬请期待！');
+        });
+        
+        // 淡入动画
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.8s ease-in-out, transform 0.8s ease-in-out';
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>

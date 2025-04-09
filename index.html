@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>装修指南</title>
+    <title>装修指南 - 飞屋设计</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Preline UI -->
@@ -166,13 +167,30 @@
 </head>
 
 <body class="font-serif bg-neutral-50 text-gray-800 dark:bg-slate-900 dark:text-white transition-colors duration-300">
+    <!-- 导航栏 -->
+    <header class="sticky top-0 z-50 bg-white dark:bg-slate-900 shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="text-2xl font-mono font-bold text-primary-600 dark:text-primary-400">飞屋设计</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors">
+                    <i class="fa-solid fa-sun text-yellow-500 dark:hidden"></i>
+                    <i class="fa-solid fa-moon text-blue-300 hidden dark:block"></i>
+                </button>
+                <a href="#contact" class="hidden md:block bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded transition-colors duration-300 transform hover:scale-105">
+                    联系我们
+                </a>
+            </div>
+        </div>
+    </header>
 
     <!-- 主横幅 -->
     <section class="bg-gradient-to-r from-primary-600 to-primary-800 text-white py-16 md:py-24">
         <div class="container mx-auto px-4 fade-in">
             <div class="max-w-3xl mx-auto text-center">
-                <h1 class="text-4xl md:text-5xl font-mono font-bold mb-6">装修知识</h1>
-                <p class="text-xl md:text-2xl opacity-90">一些家装必备知识，让我们一起打败家装这个小怪兽</p>
+                <h1 class="text-4xl md:text-5xl font-mono font-bold mb-6">装修指南</h1>
+                <p class="text-xl md:text-2xl opacity-90">为你整理的家装必备知识，让你的装修之旅更加顺利</p>
             </div>
         </div>
     </section>
@@ -199,9 +217,10 @@
         <section class="mb-16 fade-in">
             <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 rounded-lg shadow-md p-8">
                 <h2 class="text-3xl font-mono font-bold text-primary-700 dark:text-primary-300 mb-6">家装市场概况</h2>
-                <p class="mb-4 leading-relaxed">装修市场很大，先从哪里开始了解呢？我觉得，可以先从整个市场的情况开始了解。先了解一下全局的情况。对于我们后面做各种家装选择更有帮助。</p>
-                <p class="mb-4 leading-relaxed">当你面对装修市场时，在你面前的，有三个选择：装修公司、设计工作室、独立设计师。这三类，我们可以统称"家装服务商"。</p>
-                <p class="mb-4 leading-relaxed">当然，如果还要算上「自装」，那么就有四种选择。但是，据我多方考察，「自装」是一件非常耗费心力、精力、金钱、时间的选择，万不得已，我建议：不要选。</p>
+                <p class="mb-4 leading-relaxed">这是我们飞屋设计为大家整理的，关于装修里面，需要了解的事情。希望对大家做出家装中各项选择有帮助。</p>
+                <p class="mb-4 leading-relaxed">当你面对装修市场时，在你面前的，有三个选择：装修公司、设计工作室、独立设计师。这三类，我们统称"家装服务商"。</p>
+                <p class="mb-4 leading-relaxed">当然，如果还要算上「自装」，那么就有四种选择。但是，「自装」是一件非常耗费心力、精力、金钱、时间的选择，万不得已，在这里，想认真对你说：不要选。</p>
+                <p class="leading-relaxed">但是，如果你有足够精力、有足够的学习能力、有足够的时间、有足够的冒险精神。你可以尝试「自装」。你会收获不一样的人生体验。</p>
             </div>
         </section>
 
@@ -238,7 +257,7 @@
                             </li>
                             <li class="flex items-start">
                                 <i class="fa-solid fa-pencil mt-1 mr-2 text-secondary-500"></i>
-                                <span>设计怎么样：设计方案很一般，基本是套路设计，他们更关心施工能不能赚钱。</span>
+                                <span>设计怎么样：设计方案别出大错就行，他们更关心施工能不能赚钱。</span>
                             </li>
                             <li class="flex items-start">
                                 <i class="fa-solid fa-hammer mt-1 mr-2 text-secondary-500"></i>
@@ -250,7 +269,7 @@
                             </li>
                             <li class="flex items-start">
                                 <i class="fa-solid fa-headset mt-1 mr-2 text-secondary-500"></i>
-                                <span>售后怎么样：大牌子相对靠谱点，但小公司跑路的多。</span>
+                                <span>售后怎么样：大牌子相对靠谱点，但小公司跑路的挺多。</span>
                             </li>
                         </ul>
                     </div>
@@ -320,15 +339,15 @@
                             </li>
                             <li class="flex items-start">
                                 <i class="fa-solid fa-money-bill-wave mt-1 mr-2 text-gray-600 dark:text-gray-400"></i>
-                                <span>收钱方式：设计费一般不便宜，比装修公司贵，比设计公司可能要便宜。</span>
+                                <span>收钱方式：设计费一般不便宜，毕竟是人家水平和经验的体现。</span>
                             </li>
                             <li class="flex items-start">
                                 <i class="fa-solid fa-pencil mt-1 mr-2 text-gray-600 dark:text-gray-400"></i>
-                                <span>设计怎么样：就是想帮你搞个独一无二的家，更注重设计方案，满足你的个性想法。</span>
+                                <span>设计怎么样：就是想帮你搞个独一无二的家，特别抠细节，满足你的个性想法。</span>
                             </li>
                             <li class="flex items-start">
                                 <i class="fa-solid fa-hammer mt-1 mr-2 text-gray-600 dark:text-gray-400"></i>
-                                <span>施工水平：（虽然他不施工）但他对最终效果要求高，会想办法让设计想法落地。</span>
+                                <span>施工水平：（虽然他不施工）但他对最终效果要求很高，会想办法让设计想法落地。</span>
                             </li>
                             <li class="flex items-start">
                                 <i class="fa-solid fa-star mt-1 mr-2 text-gray-600 dark:text-gray-400"></i>
@@ -356,7 +375,7 @@
                         </li>
                         <li class="flex items-start">
                             <i class="fa-solid fa-circle-check mt-1 mr-2 text-primary-600 dark:text-primary-400"></i>
-                            <span><strong>沟通起来怎么样？</strong>跟独立设计师和设计工作室沟通一般更直接、更透彻。装修公司的设计师可能沟通有套路，因为他们都有销售业绩指标压力。</span>
+                            <span><strong>沟通起来怎么样？</strong>跟独立设计师和设计工作室沟通一般更直接、更透彻。装修公司的设计师可能得按公司规定说话，没那么灵活。</span>
                         </li>
                         <li class="flex items-start">
                             <i class="fa-solid fa-circle-check mt-1 mr-2 text-primary-600 dark:text-primary-400"></i>
@@ -371,7 +390,7 @@
         <section id="cooperation" class="mb-16 fade-in">
             <div class="max-w-4xl mx-auto">
                 <h2 class="text-3xl font-mono font-bold text-primary-700 dark:text-primary-300 mb-8 text-center">怎么合作</h2>
-                <p class="mb-6 text-center">说到装修，我们业主跟装修公司/设计师怎么分工合作，也就是"你干什么，我干什么"，主要有几种玩法。</p>
+                <p class="mb-6 text-center">说到装修，我们跟装修公司/设计师怎么分工合作，也就是"你干什么，我干什么"，主要有几种玩法。</p>
                 
                 <!-- 施工角度 -->
                 <div class="mb-10">
@@ -469,7 +488,7 @@
                                 </div>
                                 <div class="mb-4">
                                     <h5 class="font-bold mb-2">你做什么</h5>
-                                    <p>准备好预算。</p>
+                                    <p>给钱就行。</p>
                                 </div>
                                 <div>
                                     <h5 class="font-bold mb-2">特点</h5>
@@ -521,7 +540,7 @@
                         </div>
                     </div>
                     
-                    <p class="mt-6">所以你看，装修这事儿，合作方式很多，关键还是要弄清楚我们自己想要什么，你有多少时间精力，然后找个适合你的模式和靠谱的人。</p>
+                    <p class="mt-6">所以你看，装修这事儿，合作方式挺多的，关键是搞清楚你想要什么，你有多少时间精力，然后找个适合你的模式和靠谱的人。</p>
                 </div>
             </div>
         </section>
@@ -914,7 +933,7 @@
         <!-- 售后保修 -->
         <section id="warranty" class="mb-16 fade-in">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl font-mono font-bold text-primary-700 dark:text-primary-300 mb-8 text-center">装修完了不是终点，售后保修也要注意</h2>
+                <h2 class="text-3xl font-mono font-bold text-primary-700 dark:text-primary-300 mb-8 text-center">装修完了不是终点，售后保修得知道</h2>
                 <p class="mb-6">装修完了，别以为就万事大吉了，后面的售后和保修也很重要，这可是保护你权利的关键环节。主要得注意这几点：</p>
                 
                 <!-- 售后保修卡片 -->
@@ -1067,7 +1086,7 @@
         <section id="tips" class="mb-16 fade-in">
             <div class="max-w-4xl mx-auto">
                 <h2 class="text-3xl font-mono font-bold text-primary-700 dark:text-primary-300 mb-8 text-center">小红书高赞装修技巧</h2>
-                <p class="mb-6 text-center">下面是一些我在小红书找到的高赞内容的总结。这些内容仅供参考，需要根据自己的实际情况进行甄别和选择。</p>
+                <p class="mb-6 text-center">以下是小红书高赞内容的精华总结。这些内容仅供参考，需要根据自己的实际情况进行甄别和选择。</p>
                 
                 <!-- 高赞内容折叠面板 -->
                 <div class="hs-accordion-group">
@@ -1206,9 +1225,121 @@
                         </div>
                     </div>
                     
+                    <!-- 更多高赞内容按钮 -->
+                    <div class="text-center mt-8">
+                        <button id="show-more-tips" class="bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-lg transition-colors duration-300 transform hover:scale-105">
+                            查看更多装修技巧
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- 关于飞屋设计 -->
+        <section class="mb-16 fade-in">
+            <div class="max-w-4xl mx-auto bg-gradient-to-r from-primary-50 to-secondary-50 dark:from-primary-900 dark:to-secondary-900 rounded-lg shadow-md p-8">
+                <h2 class="text-3xl font-mono font-bold text-primary-700 dark:text-primary-300 mb-6 text-center">关于飞屋设计</h2>
+                
+                <div class="prose prose-lg max-w-none dark:prose-invert">
+                    <p class="mb-4">首先感谢你愿意花时间阅读这封给你的信。我们知道现代人阅读长文字，不是一件容易的事。因此，我们希望这封信即使没能让你和我们有眼缘，也能在未来对于你挑选家装服务有些许的帮助。</p>
+                    
+                    <h3 class="text-xl font-bold mb-3 text-primary-600 dark:text-primary-400">关于家装，我们想说的话</h3>
+                    <p class="mb-4">可能你在看到这封信前，就了解过家装；可能你曾经历过家装；可能你还没有来得及了解过。不管怎么样，我想家装给你的感觉，大概就是复杂不懂且充满各种"陷阱"的一件事。很抱歉，作为行业从业者，一个家装服务提供商。我们为我们行业带给众多消费者不好的家装体验而致歉。家装本应是一件充满体验和向往的事情，毕竟家装的起点，是源于我们对美好生活的憧憬而开始的。那为什么家装会有各种问题的产生呢？这是我们一直在思考的问题。也是我们希望能凭我们些许的努力为行业做些改变的事情。我们认为，家装行业有做好家装的能力，但却缺乏做好家装的态度。一个对于家装有敬畏之心的态度。</p>
+                    <p class="mb-4 font-bold text-center">我们相信，为消费者提供优质的家装服务，是这个行业存在的唯一理由。</p>
+                    <p class="mb-4 font-bold text-center">如果不是，我们宁愿请愿，让这个行业从此消失。</p>
+                    
+                    <h3 class="text-xl font-bold mb-3 text-primary-600 dark:text-primary-400">关于我们，想让你知道的事</h3>
+                    <p class="mb-4">我们是一家设计公司。我们想刻意的强调一下，我们是一家设计公司，而不是常见的装修公司。</p>
+                    <p class="mb-4">我们作为一家企业，一个组织。设计服务费是我们唯一的收入来源，没有之一。</p>
+                    <p class="mb-4">可能你会奇怪，这有什么值得一说吗？</p>
+                    <p class="mb-4 italic">"当我们选择用什么喂养自己时，我们就会对什么而有敬畏之心，因为这是生存问题。"</p>
+                    <p class="mb-4">设计服务费，作为我们公司生存的唯一支柱。我们深知，我们只有做好设计、做好服务，才能获得「你」的认可，我们才有机会在这个市场中存活下去。也因此，这也就让我们断绝了很多其他的有可能会伤害「你」的家装体验的事情。</p>
+                    <p class="mb-4">设计服务费作为我们的唯一收入来源，能让我们在不断精进于为「你」提供更好的家装服务这件事上坚定的走下去。说到这里，可能你会有疑问，设计公司只提供设计服务，那施工呢？关于施工，我们希望你可以有选择权，我们会推荐施工方与你合作，或者你指定施工方。而我们的设计服务中包含了，提供施工过程的设计落地服务。我们将参与家装全程，也包括整个施工过程。以保证最终的落地效果就是我们与你一起完成的，你家的设计蓝图。</p>
+                    
+                    <h3 class="text-xl font-bold mb-3 text-primary-600 dark:text-primary-400">关于设计，我们想要提醒的事</h3>
+                    <p class="mb-4">每一个房屋的设计，对于我们来说都是值得骄傲的"作品"。因此，我们认为设计本身有它独立的价值。</p>
+                    <p class="mb-4">我们没有按照行业传统，通过计算房屋面积，计算设计费。我们按照服务投入标准，收取统一的设计服务费，就目前而言，我们的设计服务费是3万/套。所以，房屋面积大小对于我们服务投入标准来说，没有分别。</p>
+                    <p class="mb-4">最后，我们想提醒一点。设计是一个见仁见智的主观事情。所以，如果你在真正了解我们之后，仍然怀疑我们能否做出让你满意的项目，那么我们建议，你可以考虑换一家设计公司。我们真诚希望你可以找到适合你的那个设计公司。如果你需要，我们也可以提供力所能及的帮助，帮助你找到适合你的家装公司。我们目前还在持续努力提高我们的服务能力和服务范围，以满足不同地方的不同的「你」的个性化需求。</p>
+                    
+                    <p class="mt-8 text-center">最后的最后，如果你喜欢我们，那就立刻联系我们。我们期待，你能邀请我们，参与到你未来美好生活蓝图的设计中。如果你觉得我们还不错，也请你关注我们、鼓励我们，这也是对我们的支持。</p>
+                    <p class="text-center">同时，我们也邀请你，将我们这家想努力为更多人提供优质家装服务体验的公司，分享给更多人看见。</p>
+                    <p class="text-center font-bold">衷心感谢你愿意花时间了解我们，也感谢你对我们飞屋设计的支持和关注。</p>
+                    <p class="text-center text-xl font-bold text-primary-600 dark:text-primary-400 mt-6">飞屋设计的是你的生活，而不仅是你的房子。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 联系我们 -->
+    <section id="contact" class="py-16 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12 fade-in">
+                    <h2 class="heading text-2xl md:text-3xl font-bold text-primary-700 dark:text-primary-300 mb-4">
+                        联系我们
+                    </h2>
+                    <p class="body-text text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                        准备开始你的装修之旅？扫码添加我们的企业微信进行咨询
+                    </p>
+                </div>
+                
+                <div class="flex justify-center fade-in">
+                    <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md max-w-xs">
+                        <img src="https://i.postimg.cc/PrWjF2wZ/SCR-20250402-oojj.jpg" alt="扫码加企业微信咨询" class="w-full h-auto rounded-md">
+                        <p class="text-center mt-4 text-gray-700 dark:text-gray-300 font-mono">
+                            扫码添加企业微信
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="mt-16 grid md:grid-cols-3 gap-8 fade-in">
+                    <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md text-center">
+                        <div class="inline-block bg-primary-100 dark:bg-primary-800 rounded-full p-4 mb-4">
+                            <i class="fa-solid fa-location-dot text-2xl text-primary-600 dark:text-primary-300"></i>
+                        </div>
+                        <h3 class="heading font-bold text-gray-800 dark:text-gray-200 mb-2">地址</h3>
+                        <p class="body-text text-gray-700 dark:text-gray-300">
+                            深圳宝安区玖悦雅轩商业裙楼瑞思空间-飞屋设计
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md text-center">
+                        <div class="inline-block bg-primary-100 dark:bg-primary-800 rounded-full p-4 mb-4">
+                            <i class="fa-solid fa-phone text-2xl text-primary-600 dark:text-primary-300"></i>
+                        </div>
+                        <h3 class="heading font-bold text-gray-800 dark:text-gray-200 mb-2">电话</h3>
+                        <p class="body-text text-gray-700 dark:text-gray-300">
+                            17724631620
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md text-center">
+                        <div class="inline-block bg-primary-100 dark:bg-primary-800 rounded-full p-4 mb-4">
+                            <i class="fa-solid fa-envelope text-2xl text-primary-600 dark:text-primary-300"></i>
+                        </div>
+                        <h3 class="heading font-bold text-gray-800 dark:text-gray-200 mb-2">邮箱</h3>
+                        <p class="body-text text-gray-700 dark:text-gray-300">
+                            service@feiwu.design
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h3 class="text-xl font-mono font-bold mb-4">飞屋设计</h3>
+                <p class="mb-4">飞屋设计的是你的生活，而不仅是你的房子。</p>
+                <div class="mb-4">
+                    <p>作者：飞屋设计团队</p>
+                </div>
+                <p class="text-gray-500">&copy; 2025 飞屋设计 版权所有</p>
+            </div>
+        </div>
+    </footer>
 
     <!-- 返回顶部按钮 -->
     <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary-600 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-primary-700">
